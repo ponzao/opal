@@ -56,7 +56,7 @@ Rails::Initializer.run do |config|
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
     :session_key => '_opal_session',
-    :secret      => '0a194a50e101b11dfb1d64db98cd7cf7bd614ed5d1fecd678e3a63c36f987830ada2882e1b35d12cff5cb72b502844e3b87e67914792c95a57799d9e3b828ea9'
+    :secret      => '97774793519235a2517d5ccb6026ade049d180a119c600191a7b55cb04a6f87fbc00d46e11ab90af65d24e0e59d120c216de9c25c62bd9e42c3ca11499d93a5b'
   }
 
   # Use the database for sessions instead of the cookie-based default,
