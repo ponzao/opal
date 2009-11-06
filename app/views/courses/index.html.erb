@@ -1,0 +1,14 @@
+<h1>ILMO2.0</h1>
+
+<h2>Courses</h2>
+<% for course in @courses %>
+  <tr>
+    <td><%= course.name %></td>
+    <td><%= link_to 'Show', course %></td>
+<!--    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+<td><%= link_to 'Delete', course, :confirm => 'Are you sure?', :method => :delete %></td>-->
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New course', new_course_path %>
