@@ -5,7 +5,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Courses: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'style' %>
 </head>
 <body>
     <h1>ILMO2.0</h1>
@@ -13,6 +13,8 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
+
+<p><%= Time.new %></p>
 
 </body>
 </html>

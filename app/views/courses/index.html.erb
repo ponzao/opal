@@ -1,9 +1,8 @@
 <h2>Courses</h2>
-<% for course in @courses %>
-    <ul>
-        <li><%= link_to course.name, course %>
-    </ul>
-<% end %>
-</table>
+<ul>
+    <% for course in @courses %>
+        <li><%= link_to course.name, course %></li>
+    <% end %>
+</ul>
 
 <%= link_to 'New course', new_course_path %>
