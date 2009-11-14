@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
 
   def authentication_required
       unless session[:id]
-        flash[:warning] = "Please login to continue."
-        redirect_to login_index
-        return false
+          flash[:warning] = "Please login to continue."
+          redirect_to login_url
+          return false
       end
   end
 end
