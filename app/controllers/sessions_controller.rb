@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        raise "foo"
         reset_session
         redirect_to root_url
     end

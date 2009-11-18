@@ -8,7 +8,6 @@ class CoursesController < ApplicationController
     end
 
     def show
-        reset_session
         @course = Course.find(params[:id])
 
         respond_to do |format|
