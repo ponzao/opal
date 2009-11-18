@@ -12,6 +12,10 @@
 
 <p style="color: green"><%= flash[:notice] %></p>
 
+<% if session[:id] %>
+    <p>Hello! You are logged in (<%= link_to "log out?", sessions_url, :method => :delete %>)</p>
+<% end %>
+
 <%= yield  %>
 
 <p>Page was rendered at <%= creation_time() %></p>

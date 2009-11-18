@@ -1,6 +1,5 @@
-<h2>Login</h2>
-
-<% form_for(@user) do |f| %>
+<h2>Login form</h2>
+<% form_for @user, :url => sessions_url do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -17,4 +16,3 @@
     <%= f.submit "Login" %>
   </p>
 <% end %>
-
