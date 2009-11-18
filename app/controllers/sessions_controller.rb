@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
                                                   params[:user][:password])
 
         if user
-            session[:id] = user.id
+            session[:user_id] = user.id
         end
 
         redirect_to courses_url
