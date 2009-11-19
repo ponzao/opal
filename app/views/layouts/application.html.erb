@@ -13,7 +13,7 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <% if logged_in? %>
-      <%= gravatar_for current_user %>
+    <% if current_user.email %><%= gravatar_for current_user %><% end %>
     <p>Hello <%= current_user.username %>! You are logged in (<%= link_to "log out?", logout_url %>)</p>
 <% end %>
 
