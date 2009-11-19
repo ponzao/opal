@@ -10,9 +10,14 @@ class UsersController < ApplicationController
 
         if @user.save
             flash[:notice] = "Account created!"
-            redirect_to root_url
+            redirect_to sessions_url
         else
             render :action => :new
         end
     end
+
+    def show
+        @user = User.find(session[:user_id])
+    end
+
 end

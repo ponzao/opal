@@ -3,6 +3,10 @@ module ApplicationHelper
     include Authentication
 
     def creation_time
-        Time.now.strftime("%d.%m.%Y %H:%M")
+        format_time(Time.now)
+    end
+
+    def format_time(time)
+        time.strftime("%d.%m.%Y %H:%M")
     end
 end

@@ -1,0 +1,20 @@
+<h2>Profile</h2>
+<h3>Username</h3>
+<p><%= @user.username %></p>
+
+<% if @user.email %>
+    <h3>Email</h3>
+    <p><%= @user.email %></p>
+<% end %>
+
+<% if @user.student_number %>
+    <h3>Student number</h3>
+    <p><%= @user.student_number %></p>
+<% end %>
+
+<h3>Last updated</h3>
+<p><%= format_time(@user.updated_at) %></p>
+
+<h3>Created</h3>
+<p><%= format_time(@user.created_at) %></p>
+</table>
