@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
             return true
         else
             flash[:warning] = "Please login to continue."
-            redirect_to root_url
+            redirect_to sessions_url
             return false
         end
     end
