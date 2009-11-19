@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to courses_url
         else
-            flash[:notice] = "Invalid username or password"
+            flash[:notice] = "Invalid username or password!"
             redirect_to sessions_url
         end
 

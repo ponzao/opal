@@ -22,6 +22,9 @@ class UsersController < ApplicationController
 
     def edit
         @user = User.find(params[:id])
+        # FIXME The following is a stupid hack, I don't want the password to fill
+        # the field in the view. Anyway the whole password changing is quite bad.
+        @user.password = nil
     end
 
     def update
@@ -32,5 +35,12 @@ class UsersController < ApplicationController
         else
             render :action => "edit"
         end
+    end
+
+    def destroy
+        @user = User.find(params[:id])
+        @user.destroy
+        reset_session
+        redirect_to root_url
     end
 end

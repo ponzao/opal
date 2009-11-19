@@ -14,7 +14,7 @@
 
 <% if logged_in? %>
     <% if current_user.email %><%= gravatar_for current_user %><% end %>
-    <p>Hello <%= link_to current_user.username, user_url(current_user.id) %>! You are logged in (<%= link_to "log out?", logout_url %>)</p>
+    <p>Hello <%= link_to current_user.username, user_url(current_user.id) %> (<%= link_to "log out?", logout_url %>)!</p>
 <% end %>
 </div>
 
