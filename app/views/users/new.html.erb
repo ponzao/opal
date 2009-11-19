@@ -1,5 +1,5 @@
 <h2>Registration form</h2>
-<% form_for(@user) do |f| %>
+<% form_for(@user, :html => {:class => 'validate'}) do |f| %>
   <%= f.error_messages %>
 
   <p>

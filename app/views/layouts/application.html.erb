@@ -1,29 +1,32 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Courses: <%= controller.action_name %></title>
-  <%= stylesheet_link_tag 'style' %>
-</head>
-<body>
-<div class="navigation">
-    <h1><%= link_to "ILMO2.0", root_url %></h1>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title>Courses: <%= controller.action_name %></title>
+        <%= stylesheet_link_tag 'style' %>
+        <%= javascript_include_tag 'XMLHttpRequest' ,'v2.standalone.full.min', 'v2.config', 'v2.rails' %>
+        <%= javascript_for_validatious %>
+
+    </head>
+    <body>
+        <div class="navigation">
+            <h1><%= link_to "ILMO2.0", root_url %></h1>
 
 
-<% if logged_in? %>
-    <% if current_user.email %><%= gravatar_for current_user %><% end %>
-    <p>Hello <%= link_to current_user.username, user_url(current_user.id) %> (<%= link_to "log out?", logout_url %>)!</p>
-<% end %>
-</div>
+            <% if logged_in? %>
+            <% if current_user.email %><%= gravatar_for current_user %><% end %>
+                <p>Hello <%= link_to current_user.username, user_url(current_user.id) %> (<%= link_to "log out?", logout_url %>)!</p>
+            <% end %>
+        </div>
 
-<p style="color: green"><%= flash[:notice] %></p>
+        <p style="color: green"><%= flash[:notice] %></p>
 
-<%= yield  %>
+        <%= yield  %>
 
-<div class="navigation">
-    <p>Page was rendered at <%= creation_time() %></p>
-</div>
-</body>
+        <div class="navigation">
+            <p>Page was rendered at <%= creation_time() %></p>
+        </div>
+    </body>
 </html>
