@@ -8,18 +8,22 @@
   <%= stylesheet_link_tag 'style' %>
 </head>
 <body>
-    <h1>ILMO2.0</h1>
+<div class="navigation">
+    <h1><%= link_to "ILMO2.0", root_url %></h1>
 
-<p style="color: green"><%= flash[:notice] %></p>
 
 <% if logged_in? %>
     <% if current_user.email %><%= gravatar_for current_user %><% end %>
-    <p>Hello <%= current_user.username %>! You are logged in (<%= link_to "log out?", logout_url %>)</p>
+    <p>Hello <%= link_to current_user.username, user_url(current_user.id) %>! You are logged in (<%= link_to "log out?", logout_url %>)</p>
 <% end %>
+</div>
+
+<p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield  %>
 
-<p>Page was rendered at <%= creation_time() %></p>
-
+<div class="navigation">
+    <p>Page was rendered at <%= creation_time() %></p>
+</div>
 </body>
 </html>

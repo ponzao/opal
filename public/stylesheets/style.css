@@ -14,9 +14,13 @@ a:visited { color: #666; }
 a:hover { color: #999; }
 
 .errorExplanation {
-    background: #a97;
+    background: #dad;
 }
 
 .fieldWithErrors {
-    background: #a97;
+    background: #aad;
+}
+
+.navigation {
+    background: #ddd;
 }

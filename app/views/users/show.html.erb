@@ -20,4 +20,7 @@
 
 <h3>Created</h3>
 <p><%= format_time(@user.created_at) %></p>
-</table>
+
+<% if current_user.id == @user.id %>
+    <%= link_to "Edit?", edit_user_url(@user) %>
+<% end %>
