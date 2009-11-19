@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         if logged_in?
             return true
         else
-            flash[:warning] = "Please login to continue."
+            flash[:notice] = "Please login to continue."
             redirect_to sessions_url
             return false
         end

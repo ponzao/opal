@@ -1,16 +1,17 @@
 class SessionsController < ApplicationController
-    skip_before_filter :authorize #,  :only => [:index]
+    skip_before_filter :authorize,  :only => [:index, :create, :destroy]
 
     def index
         @user = User.new
     end
 
     def create
-        user = User.find_by_username_and_password(params[:user][:username],
-                                                  params[:user][:password])
+        user = User.find_by_username(params[:user][:username])
 
-        if user
+        if user and user.password_matches?(params[:user][:password])
             session[:user_id] = user.id
+        else
+            flash[:notice] = "Invalid username or password"
         end
 
         redirect_to courses_url
@@ -18,6 +19,6 @@ class SessionsController < ApplicationController
 
     def destroy
         reset_session
-        redirect_to root_url
+        redirect_to sessions_url
     end
 end
