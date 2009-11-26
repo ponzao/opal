@@ -1,0 +1,19 @@
+<h2>New course instance</h2>
+
+<% form_for([@course, @ci]) do |f| %>
+    <p>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    </p>
+
+    <p>
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 6 %>
+    </p>
+
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', course_path(@course) %>

@@ -1,5 +1,6 @@
 <h2><%= @ci.course.name %> - <%= @ci.name %></h2>
-
+<p>
+<%= @ci.description %>
 <ul>
     <% @ci.exercise_groups.each do |eg| %>
         <li><%= link_to eg.time,
@@ -8,5 +9,7 @@
 </ul>
 
 <p>
+<%= link_to 'New exercise group', 
+    new_course_course_instance_exercise_group_path(@ci.course, @ci) %>
 <%= link_to 'Back', course_path(@ci.course) %>
 </p>
