@@ -9,10 +9,15 @@
 overwrite = ENV['overwrite'] == "yes"
 how_many_courses = ENV['courses'].to_i
 
-puts "Usage: rake db:seed courses=<number of courses> <overwrite=true>" if how_many_courses <= 0 # to_i returns 0 if ENV['courses'] is empty
+puts "Usage: rake db:seed courses=<number of courses> <overwrite=yes>" if how_many_courses <= 0 && (not overwrite) # to_i returns 0 if ENV['courses'] is empty
 
 Course.delete_all if overwrite
- 
+
 for i in 1..how_many_courses
-  Course.create(:name => "#{'Course #' + i.to_s}", :description => "Non eram nescius, Brute, cum, quae summis ingeniis exquisitaque doctrina philosophi Graeco sermone tractavissent, ea Latinis litteris mandaremus, fore ut hic noster labor in varias reprehensiones incurreret. nam quibusdam, et iis quidem non admodum indoctis, totum hoc displicet philosophari")
+    c = Course.new(:name => "#{'Course #' + i.to_s}", :description => "Non eram nescius, Brute, cum, quae summis ingeniis exquisitaque doctrina philosophi Graeco serhic noster labor in variahoc displicet philosophari")
+    for j in 1..10 
+        c.course_instances.build(:name => "#{'CourseInstance #' + j.to_s}", :description => "Non eram nescius, Brute, cum, quae summis ingeniis exquisitaque doctrina philosophi ut hic noster labo, totum hoc displicet philosophari").exercise_groups.build(:time => "12-16", :location => "A111")
+    end
+    c.save
+
 end

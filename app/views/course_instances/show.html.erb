@@ -3,7 +3,7 @@
 <%= @ci.description %>
 <ul>
     <% @ci.exercise_groups.each do |eg| %>
-        <li><%= link_to eg.time,
+        <li><%= link_to eg.time + " " + eg.location,
             course_course_instance_exercise_group_url(@ci.course, @ci, eg) %></li>
     <% end %>
 </ul>
