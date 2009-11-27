@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     include Authentication
 
     before_filter :authorize
+    before_filter :set_locale
 
     protected
 
@@ -19,6 +20,11 @@ class ApplicationController < ActionController::Base
             redirect_to sessions_url
             return false
         end
+    end
+
+    def set_locale
+        session[:locale] = params[:locale] if params[:locale]
+        I18n.locale = session[:locale]
     end
 
 end

@@ -4,13 +4,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-        <title>ILMO2.0</title>
+        <title><%= t 'title' %></title>
         <%= stylesheet_link_tag 'style' %>
 
     </head>
     <body>
         <div class="navigation">
-            <h1><%= link_to "ILMO2.0", root_url %></h1>
+            <h1><%= link_to (t 'title'), root_url %></h1>
 
 
             <% if logged_in? %>
