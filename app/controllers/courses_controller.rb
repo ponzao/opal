@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
     def index
-        @courses = Course.find(:all)
+        @courses = Course.all
 
         respond_to do |format|
             format.html # index.html.erb

@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
     attr_accessor :password_confirmation
 
     def before_save
+        self.username.downcase!
+
         if self.salt == nil
             self.salt = random_numbers(5)
             self.password = Digest::MD5.hexdigest(self.salt + self.password)
