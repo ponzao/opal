@@ -10,12 +10,14 @@
     </head>
     <body>
         <div class="navigation">
-            <h1><%= link_to (t 'title'), root_url %></h1>
+            <h1><%= (t 'title') %></h1>
 
 
             <% if logged_in? %>
-            <% if current_user.email %><%= gravatar_for current_user %><% end %>
-                <p>Hello <%= link_to current_user.username, user_url(current_user.id) %> (<%= link_to "log out?", logout_url %>)!</p>
+                <%= link_to current_user.username, user_url(current_user.id) %>
+                | <%= link_to "newsfeed", newsfeeds_url %>
+                | <%= link_to "courses", courses_url %>
+                | <%= link_to "log out", logout_url %>
             <% end %>
         </div>
 

@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 
         if user and user.password_matches?(params[:user][:password])
             session[:user_id] = user.id
-            redirect_to courses_url
+            redirect_to root_url
         else
             flash[:notice] = "Invalid username or password!"
             redirect_to sessions_url

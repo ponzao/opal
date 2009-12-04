@@ -4,7 +4,13 @@ class Course < ActiveRecord::Base
 
     has_many :course_instances, :dependent => :destroy
 
+    after_create :update_newsfeed
+
     def self.all
         find(:all, :order => "created_at DESC")
+    end
+
+    def update_newsfeed
+        Newsfeed.course_created(self)
     end
 end

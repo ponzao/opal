@@ -1,1 +1,11 @@
-<h2>TODO: get specifications and generate this page if necessary?</h2>
+<h2><%= @course.name %> - <%= @ci.name %> - <%= @eg.time %> <%= @eg.location %></h2>
+
+<h3>Registered users</h3>
+<ul>
+    <% for user in @eg.registered_users %>
+        <li><%= link_to user.username, user_path(user) %></li>
+    <% end %>
+</ul>
+
+<%= link_to 'Join', join_url, :confirm =>
+    'Are you sure you wish to join this exercise group?' %>

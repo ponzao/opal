@@ -11,6 +11,11 @@ class User < ActiveRecord::Base
 
     attr_accessor :password_confirmation
 
+    has_many :registrations
+    has_many :exercise_groups, :through => :registrations
+
+    after_create :update_newsfeed
+
     def before_save
         self.username.downcase!
 
@@ -33,5 +38,9 @@ class User < ActiveRecord::Base
         newrand = ""
         1.upto(n) { |i| newrand << numbers[rand(numbers.size - 1)] }
         return newrand
+    end
+
+    def update_newsfeed
+        Newsfeed.user_registered(self)
     end
 end

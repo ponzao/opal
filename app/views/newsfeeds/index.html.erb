@@ -1,0 +1,5 @@
+<h2>Newsfeed</h2>
+
+<% @newsfeed.each do |item| %>
+    <p><%= item.message %> <%= time_ago_in_words(item.created_at) %> ago</p>
+<% end %>
