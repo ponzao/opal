@@ -35,7 +35,7 @@ class ExerciseGroupsController < ApplicationController
         @course = Course.find(params[:course_id])
         @ci = @course.course_instances.find(params[:course_instance_id])
         @eg = @ci.exercise_groups.find(params[:id])
-        if @eg.add_user(User.find(session[:user_id]))
+        if @eg.add_user(current_user)
             flash[:notice] = 'You have successfully joined this group!'
         else
             flash[:notice] = 'You cannot join this group!'
