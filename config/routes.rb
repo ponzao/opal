@@ -10,4 +10,8 @@ ActionController::Routing::Routes.draw do |map|
             ci.resources :exercise_groups
         end
     end
+
+    map.namespace(:admin) do |admin|
+        admin.resource :mailer, :controller => "mailer" 
+    end
 end

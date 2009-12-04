@@ -16,6 +16,12 @@ class User < ActiveRecord::Base
 
     after_create :update_newsfeed
 
+    def self.with_email_in_exercise_groups
+        find(:all, :conditions => "email IS NOT NULL").find_all{ |u|
+            not u.exercise_groups.empty?
+        }
+    end
+
     def before_save
         self.username.downcase!
 
