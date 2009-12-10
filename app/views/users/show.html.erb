@@ -21,10 +21,35 @@
 <h3>Created</h3>
 <p><%= format_time(@user.created_at) %></p>
 
+<% unless @user.exercise_groups.empty? %>
+<h3>Groups registered to</h3>
+<ul>
+    <% for eg in @user.exercise_groups %>
+        <li><%= eg.course_instance.course.name %>,
+        <%= eg.course_instance.name %>,
+        <%= eg.time %> <%= eg.location %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<% unless @user.friends.empty? %>
+<h3>Friends</h3>
+<ul>
+    <% for friend in @user.friends %>
+        <li><%= link_to friend.username, user_url(friend) %></li>
+    <% end %>
+</ul>
+<% end %>
+
 <% if current_user.id == @user.id %>
     <p>
     <%= link_to "Edit", edit_user_url(@user) %>
     <%= link_to "Delete", @user, :confirm => 
         'Are you sure you wish to delete yourself?', :method => :delete %>
     </p>
+<% end %>
+
+<% unless current_user.friends.include? @user or current_user == @user %>
+    <%= link_to "Become friend", user_friend_path(@user, current_user),
+        :method => 'put', :confirm => 'Are you sure you want to become friends?' %>
 <% end %>

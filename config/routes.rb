@@ -5,6 +5,10 @@ ActionController::Routing::Routes.draw do |map|
 
     map.resources :users, :courses, :sessions, :newsfeeds
 
+    map.resources :users do |user|
+        user.resources :friends
+    end
+
     map.resources :courses do |course|
         course.resources :course_instances do |ci|
             ci.resources :exercise_groups

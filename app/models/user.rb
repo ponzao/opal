@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
 
     has_many :registrations
     has_many :exercise_groups, :through => :registrations
+    has_many :friendships
+    has_many :friends, :through => :friendships
 
     after_create :update_newsfeed
 
