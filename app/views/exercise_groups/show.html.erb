@@ -1,6 +1,6 @@
 <h2><%= @course.name %> - <%= @ci.name %> - <%= @eg.time %> <%= @eg.location %></h2>
 
-<h3>Registered users</h3>
+<h3>Registered users <%= @eg.registered_users.size %>/<%= @eg.attendee_limit %></h3>
 <ul>
     <% for user in @eg.registered_users %>
         <li><%= link_to user.username, user_path(user) %></li>
