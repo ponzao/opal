@@ -6,9 +6,17 @@
     <% end %>
 </ul>
 
+<ul>
+    <% @course.separate_exams.each do |se| %>
+        <li><%= link_to se.location + " " + se.time, course_separate_exam_url(@course, se) %></li>
+    <% end %>
+</ul>
+
 <p>
 <%= link_to 'New instance', 
     new_course_course_instance_path(@course) %>
+<%= link_to 'New separate exam', 
+    new_course_separate_exam_path(@course) %>
     <%= link_to "Delete", @course, :confirm =>
         'Are you sure you wish to delete this course?', :method => :delete %>
 <%= link_to 'Back', courses_path %>

@@ -1,0 +1,19 @@
+<h2>New separate exam</h2>
+
+<% form_for([@course, @se]) do |f| %>
+    <p>
+    <%= f.label :time %>
+    <%= f.text_field :time %>
+    </p>
+
+    <p>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    </p>
+
+    <p>
+    <%= f.submit "Create" %>
+    </p>
+<% end %>
+
+<%= link_to 'Back', course_path(@course) %>

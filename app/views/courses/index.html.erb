@@ -1,8 +1,11 @@
 <h2>Courses</h2>
-<ul>
-    <% for course in @courses %>
-        <li><%= link_to course.name, course %></li>
-    <% end %>
-</ul>
+<% @categories.each do |category| %>
+    <h3><%= category.name %></h3>
+    <ul>
+        <% category.courses.each do |c| %>
+            <li><%= link_to c.name, c %></li>
+        <% end %>
+    </ul>
+<% end %>
 
 <%= link_to 'New course', new_course_path %>

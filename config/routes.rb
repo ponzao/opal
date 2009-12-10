@@ -10,6 +10,7 @@ ActionController::Routing::Routes.draw do |map|
     end
 
     map.resources :courses do |course|
+        course.resources :separate_exams
         course.resources :course_instances do |ci|
             ci.resources :exercise_groups
         end
