@@ -15,6 +15,12 @@ class User < ActiveRecord::Base
     has_many :exercise_groups, :through => :registrations
     has_many :friendships
     has_many :friends, :through => :friendships
+    has_many :courses_completeds
+    has_many :completed_courses, :through => :courses_completeds, :source =>
+        :course
+    has_many :courses_faileds
+    has_many :failed_courses, :through => :courses_faileds, :source =>
+        :course
 
     after_create :update_newsfeed
 

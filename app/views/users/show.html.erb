@@ -32,6 +32,25 @@
 </ul>
 <% end %>
 
+<% unless @user.completed_courses.empty? %>
+<h3>Completed courses</h3>
+<ul>
+    <% for course in @user.completed_courses %>
+        <li><%= link_to course.name, course_url(course) %></li>
+    <% end %>
+</ul>
+<% end %>
+
+<% unless @user.failed_courses.empty? %>
+<h3>Failed courses</h3>
+<ul>
+    <% for course in @user.failed_courses %>
+        <li><%= link_to course.name, course_url(course) %></li>
+    <% end %>
+</ul>
+<% end %>
+
+
 <% unless @user.friends.empty? %>
 <h3>Friends</h3>
 <ul>
@@ -53,3 +72,5 @@
     <%= link_to "Become friend", user_friend_path(@user, current_user),
         :method => 'put', :confirm => 'Are you sure you want to become friends?' %>
 <% end %>
+
+

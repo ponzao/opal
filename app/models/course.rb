@@ -7,6 +7,13 @@ class Course < ActiveRecord::Base
 
     belongs_to :category
 
+    has_many :courses_completeds
+    has_many :passed_users, :through => :courses_completeds, :source =>
+        :user
+
+    has_many :courses_faileds
+    has_many :failed_users, :through => :courses_faileds, :source => :user
+
     after_create :update_newsfeed
 
     def self.all
