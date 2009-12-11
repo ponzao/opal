@@ -1,5 +1,15 @@
 <h2>Newsfeed</h2>
 
 <% @newsfeed.each do |item| %>
-    <p><%= item.message %> <%= time_ago_in_words(item.created_at) %> ago</p>
+    <p><%= item.message %> <%= time_ago_in_words(item.created_at) %> ago
+    <% unless item.liking_users.include?(current_user) %>
+        <%= link_to 'Like', newsfeed_url(item), :method => :put %>
+    <% end %>
+    <% unless item.liking_users.empty? %>
+        Liked by: 
+        <% item.liking_users.each do |u| %>
+            <%= u.username %>
+        <% end %>
+    <% end %>
+    </p>
 <% end %>

@@ -1,4 +1,11 @@
 class Newsfeed < ActiveRecord::Base
+    has_many :likes
+    has_many :liking_users, :through => :likes, :source => :user
+
+    def self.create_liking(user, newsfeed)
+        newsfeed.liking_users << user
+    end
+
     def self.user_registered(user)
         create :message => "User #{user.username} registered."
     end

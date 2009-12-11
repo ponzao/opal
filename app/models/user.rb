@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
     has_many :courses_faileds
     has_many :failed_courses, :through => :courses_faileds, :source =>
         :course
+    has_many :likes
+    has_many :liked_feeds, :through => :likes, :source => :newsfeed
 
     after_create :update_newsfeed
 
