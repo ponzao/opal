@@ -1,6 +1,8 @@
 class NewsfeedsController < ApplicationController
     def index
         @newsfeed = Newsfeed.find_latest(15)
+        @liked_count = Newsfeed.liked_count
+        @other_count = Newsfeed.total_count - @liked_count
     end
 
     def update

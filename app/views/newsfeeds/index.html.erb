@@ -1,6 +1,8 @@
 <h2>Newsfeed</h2>
 
-<% @newsfeed.each do |item| %>
+<img src="<%=GoogleChart.pie_3d_600x300(['Liked feeds', @liked_count],['Normal feeds', @other_count]).to_url%>">
+
+ <% @newsfeed.each do |item| %>
     <p><%= item.message %> <%= time_ago_in_words(item.created_at) %> ago
     <% unless item.liking_users.include?(current_user) %>
         <%= link_to 'Like', newsfeed_url(item), :method => :put %>
