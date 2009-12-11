@@ -22,4 +22,8 @@ class SeparateExamsController < ApplicationController
         end
     end
 
+    def show
+        @course = Course.find(params[:course_id])
+        @se = @course.separate_exams.find(params[:id])
+    end
 end
